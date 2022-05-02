@@ -9,8 +9,6 @@ import dev.kord.common.entity.Snowflake
 import template.extensions.FunExtension
 import template.extensions.ModerationExtension
 
-val prefixes = HashMap<Snowflake, String>()
-
 suspend fun main() {
 
     val bot = ExtensibleBot(System.getenv("DISCORD_TOKEN")) {
@@ -22,10 +20,7 @@ suspend fun main() {
             }
 
             prefix {
-                if (prefixes.containsKey(guildId))
-                    prefixes[guildId].toString()
-                else
-                    "!"
+                "!"
             }
         }
 
